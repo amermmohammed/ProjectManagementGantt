@@ -24,5 +24,18 @@ namespace ProjectManagementGantt
         {
             InitializeComponent();
         }
+        
+
+        private void btnEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeesWindow employeesWindow = new EmployeesWindow();
+            employeesWindow.Show();
+        }
+
+        private void btnProjects_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectsWindow projectsWindow = new ProjectsWindow();
+            projectsWindow.Show();
+        }
     }
 }

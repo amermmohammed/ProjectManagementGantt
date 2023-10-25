@@ -1,0 +1,98 @@
+﻿<Window x:Class="ProjectManagementGantt.EmployeesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagementGantt"
+        mc:Ignorable="d"
+        Title="Mitarbeiterliste" Height="450" Width="800">
+    <Grid>
+        <FlowDocumentReader VerticalAlignment="Center" HorizontalAlignment="Center" Margin="60,0,60,150">
+            <FlowDocument>
+
+                <Table CellSpacing="5">
+
+                    <Table.Columns>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                        <TableColumn/>
+                    </Table.Columns>
+
+                    <TableRowGroup>
+
+                        <!-- Title row for the table. -->
+                        <TableRow Background="SkyBlue">
+                            <TableCell ColumnSpan="4" TextAlignment="Center">
+                                <Paragraph FontSize="24pt" FontWeight="Bold">Mitarbeiterliste</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                        <!-- Header row for the table. -->
+                        <TableRow Background="LightGoldenrodYellow">
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Name</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Vorname</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Abteilung</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontSize="14pt" FontWeight="Bold">Telefon</Paragraph>
+                            </TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Hansen</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>knut</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>EDV</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0175-123939</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Maier</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Fred</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Controlling</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0163-494949</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Laufer</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Frauke</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>EDV</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>0174-3484738</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button Name="addEmployee" Content="Neu" Margin="222,364,0,0" Width="104" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Button Name="editEmployee" Content="Bearbeiten" Margin="328,364,0,0" Width="104" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Name="deleteEmployee" Content="Löschen" Margin="433,364,0,0" Height="37" Width="104" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+    </Grid>
+</Window>
