@@ -11,10 +11,11 @@
         <Label Content="Vorname" HorizontalAlignment="Left" Height="30" Margin="40,91,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
         <Label Content="Abteilung" HorizontalAlignment="Left" Height="30" Margin="40,126,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
         <Label Content="Telefon" HorizontalAlignment="Left" Height="30" Margin="40,161,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="140,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="140,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="140,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="140,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Button Content="speichern" HorizontalAlignment="Left" Margin="221,251,0,0" VerticalAlignment="Top" FontSize="16" MinWidth="100" MinHeight="40"/>
+        <TextBox x:Name="firstNameTxt" HorizontalAlignment="Left" Margin="140,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" Margin="140,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="depTxt" HorizontalAlignment="Left" Margin="140,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="telTxt" HorizontalAlignment="Left" Margin="140,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Button Content="speichern" HorizontalAlignment="Left" Margin="221,251,0,0" VerticalAlignment="Top" FontSize="16" MinWidth="100" MinHeight="40" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="40,305,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
     </Grid>
 </Window>
