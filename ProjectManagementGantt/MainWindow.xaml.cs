@@ -24,7 +24,7 @@ namespace ProjectManagementGantt
         {
             InitializeComponent();
         }
-        
+
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
