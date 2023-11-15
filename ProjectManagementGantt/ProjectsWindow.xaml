@@ -1,12 +1,55 @@
-﻿<Window x:Class="ProjectManagementGantt.ProjectsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProjectManagementGantt"
-        mc:Ignorable="d"
-        Title="Projektliste" Height="450" Width="800">
-    <Grid>
-        
+﻿<Window
+    x:Class="ProjectManagementGantt.EmployeesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ProjectManagementGantt"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Projektsliste"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid Margin="0,0,-49,-96">
+        <Button
+            Name="addProject"
+            Width="104"
+            Height="37"
+            Margin="222,364,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button_Click"
+            Content="Neu" />
+        <Button
+            Name="editProject"
+            Width="104"
+            Height="37"
+            Margin="328,364,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="editEmployee_Click"
+            Content="Bearbeiten" />
+        <Button
+            Name="deleteProject"
+            Width="104"
+            Height="37"
+            Margin="433,364,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Löschen" />
+        <DataGrid
+            x:Name="dataGridView2"
+            Width="790"
+            Margin="0,10,59,195"
+            HorizontalAlignment="Right"
+            d:ItemsSource="{d:SampleData ItemCount=4}"
+            AlternatingRowBackground="LightGray"
+            HorizontalGridLinesBrush="Gray"
+            RowBackground="White"
+            SelectionChanged="DataGrid_SelectionChanged"
+            VerticalGridLinesBrush="Gray">
+            <DataGrid.CellStyle>
+                <Style />
+            </DataGrid.CellStyle>
+        </DataGrid>
     </Grid>
 </Window>
