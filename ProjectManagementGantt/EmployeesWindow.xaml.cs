@@ -86,16 +86,42 @@ namespace ProjectManagementGantt
             }
         }
 
+
         public void UpdateDataTable()
         {
             DataTable newDataTable = GetEmployees();
-
             yourDataTable.Clear();
             yourDataTable.Merge(newDataTable);
 
-            ICollectionView dataView = CollectionViewSource.GetDefaultView(yourDataTable);
+            UpdateTable();
+        }
 
-            dataGridView1.ItemsSource = dataView;
+        private void UpdateTable()
+        {
+            TableRowGroup tableRowGroup = employeesTable.RowGroups[0];
+
+            // Clear existing rows, except for the header row
+            tableRowGroup.Rows.Clear();
+
+            // Add header row
+            TableRow headerRow = new TableRow();
+            tableRowGroup.Rows.Add(headerRow);
+            headerRow.Cells.Add(new TableCell(new Paragraph(new Run("Nachname"))));
+            headerRow.Cells.Add(new TableCell(new Paragraph(new Run("Vorname"))));
+            headerRow.Cells.Add(new TableCell(new Paragraph(new Run("Abteilung"))));
+            headerRow.Cells.Add(new TableCell(new Paragraph(new Run("Telefon"))));
+
+            // Add rows based on data
+            foreach (DataRow row in yourDataTable.Rows)
+            {
+                TableRow newRow = new TableRow();
+                tableRowGroup.Rows.Add(newRow);
+
+                newRow.Cells.Add(new TableCell(new Paragraph(new Run(row["lastname"].ToString()))));
+                newRow.Cells.Add(new TableCell(new Paragraph(new Run(row["firstname"].ToString()))));
+                newRow.Cells.Add(new TableCell(new Paragraph(new Run(row["department"].ToString()))));
+                newRow.Cells.Add(new TableCell(new Paragraph(new Run(row["tel"].ToString()))));
+            }
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
