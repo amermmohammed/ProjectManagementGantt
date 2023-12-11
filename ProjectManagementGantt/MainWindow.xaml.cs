@@ -20,15 +20,19 @@ namespace ProjectManagementGantt
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow _instance;
+        public static EmployeesWindow employeesWindow;
+
         public MainWindow()
         {
+            _instance = this;
             InitializeComponent();
         }
         
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
-            EmployeesWindow employeesWindow = new EmployeesWindow();
+            employeesWindow = new EmployeesWindow();
             employeesWindow.Show();
         }
 

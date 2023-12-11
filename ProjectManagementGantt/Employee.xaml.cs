@@ -29,15 +29,20 @@ namespace ProjectManagementGantt
             string lastname = lastNameTxt.Text;
             string dep = depTxt.Text;
             string tel = telTxt.Text;
-
+            
             bool success = InsertEmployee(firstName, lastname, dep, tel);
-
+            errorMessage.Text = "Error1";
             if (success)
             {
                 firstNameTxt.Text = string.Empty;
                 lastNameTxt.Text = string.Empty;
                 depTxt.Text = string.Empty;
                 telTxt.Text = string.Empty;
+                errorMessage.Text = "";
+                MainWindow.employeesWindow.UpdateDataTable();
+            } else
+            {
+                errorMessage.Text = "Error: Bitte stellen Sie sicher, dass alle notwendigen Felder ausgefüllt sind.";
             }
         }
 
@@ -48,17 +53,34 @@ namespace ProjectManagementGantt
             {
                 connection.Open();
 
-
                 string insertQuery = "INSERT INTO employees (firstname, lastname, department, tel) VALUES (@firstName, @lastName, @department, @tel);";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(insertQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@firstName", firstName);
-                    cmd.Parameters.AddWithValue("@lastName", lastName);
-                    cmd.Parameters.AddWithValue("@department", department);
-                    cmd.Parameters.AddWithValue("@tel", tel);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (firstName.Length > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@firstName", firstName);
+                    } 
+                    if (lastName.Length > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@lastName", lastName);
+                    }
+                    if (department.Length > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@department", department);
+                    }
+                    if (tel.Length > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@tel", tel);
+                    }
+                    int rowsAffected = 0;
+                    try
+                    {
+                       rowsAffected = cmd.ExecuteNonQuery();
+                    } catch(Exception e)
+                    {
+                        //MessageBox.Show("Error" + e);
+                    }
 
                     connection.Close();
 

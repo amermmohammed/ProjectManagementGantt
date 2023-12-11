@@ -6,19 +6,43 @@
     xmlns:local="clr-namespace:ProjectManagementGantt"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Mitarbeiterliste"
-    Width="800"
-    Height="450"
-    mc:Ignorable="d">
-    <Grid Margin="0,0,-49,-96">
+    MinHeight="300" MinWidth="400"
+    mc:Ignorable="d" d:DesignHeight="482.46" d:DesignWidth="851.033">
+    <Grid>
+        <DataGrid Name="employeesDataGrid" ColumnWidth="*" SelectionChanged="employeesDataGrid_SelectionChanged" EnableColumnVirtualization="True" HeadersVisibility="Column" Margin="0,0,0,110"/>
+        <DockPanel LastChildFill="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,25">
+            <Button
+            Name="addEmployee"
+            Width="104"
+            Height="37"
+            Click="Button_Click"
+            Content="Neu"/>
+            <Button
+            Name="editEmployee"
+            Width="104"
+            Height="37"
+            Content="Bearbeiten" Margin="10,0,10,0"/>
+            <Button
+            Name="deleteEmployee"
+            Width="104"
+            Height="37"
+            Content="Löschen"/>
+        </DockPanel>
+    </Grid>
+
+    <!-->
+    <Grid Margin="10,0,0,0">
+        
         <FlowDocumentReader
-            Margin="48,0,101,0"
-            VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="300" Width="700">
+            VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="NaN" Margin="0,0,0,100">
             <FlowDocumentReader.RenderTransform>
                 <TransformGroup>
+                    
                     <ScaleTransform/>
-                    <SkewTransform AngleX="0"/>
+                    <SkewTransform AngleX="0"/> 
                     <RotateTransform/>
                     <TranslateTransform X="0"/>
+                    
                 </TransformGroup>
             </FlowDocumentReader.RenderTransform>
             <FlowDocument Name="employeesDocument">
@@ -31,7 +55,7 @@
                     </Table.Columns>
 
                     <TableRowGroup>
-                        <!--  Header row for the table.  -->
+                        
                         <TableRow Background="LightGoldenrodYellow">
                             <TableCell>
                                 <Paragraph FontSize="14pt" FontWeight="Bold">Nachname</Paragraph>
@@ -51,32 +75,6 @@
             </FlowDocument>
         </FlowDocumentReader>
 
-
-
-        <Button
-            Name="addEmployee"
-            Width="104"
-            Height="37"
-            Margin="222,364,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="Button_Click"
-            Content="Neu" />
-        <Button
-            Name="editEmployee"
-            Width="104"
-            Height="37"
-            Margin="328,364,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Bearbeiten" />
-        <Button
-            Name="deleteEmployee"
-            Width="104"
-            Height="37"
-            Margin="433,364,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Löschen" />
     </Grid>
+    <!-->
 </Window>

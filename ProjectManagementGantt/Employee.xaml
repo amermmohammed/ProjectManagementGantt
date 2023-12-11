@@ -5,17 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectManagementGantt"
         mc:Ignorable="d"
+            MinHeight="350" MinWidth="300"
         Title="Employee" Height="400" Width="400">
     <Grid Margin="0,10,0,10">
-        <Label Content="Name" HorizontalAlignment="Left" Height="30" Margin="40,56,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Vorname" HorizontalAlignment="Left" Height="30" Margin="40,91,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Abteilung" HorizontalAlignment="Left" Height="30" Margin="40,126,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Telefon" HorizontalAlignment="Left" Height="30" Margin="40,161,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" FontSize="16"/>
-        <TextBox x:Name="firstNameTxt" HorizontalAlignment="Left" Margin="140,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" Margin="140,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="depTxt" HorizontalAlignment="Left" Margin="140,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="telTxt" HorizontalAlignment="Left" Margin="140,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Button Content="speichern" HorizontalAlignment="Left" Margin="221,251,0,0" VerticalAlignment="Top" FontSize="16" MinWidth="100" MinHeight="40" Click="Button_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="40,305,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0">
+            <DockPanel>
+                <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
+
+                <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Vorname" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="firstNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Abteilung" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="depTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Telefon" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
+                <TextBox x:Name="telTxt" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+            </DockPanel>
+        </StackPanel>
+        <Button Content="Speichern" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" MinWidth="100" MinHeight="40" Click="Button_Click" Margin="0,0,0,25"/>
+        <TextBlock Name="errorMessage" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,100,0,0" Foreground="#FFFF0303"/>
     </Grid>
 </Window>

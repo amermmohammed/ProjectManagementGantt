@@ -49,10 +49,10 @@ namespace ProjectManagementGantt
 
                 string createTableQuery = "CREATE TABLE IF NOT EXISTS employees (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "firstname TEXT, " +
-                    "lastname TEXT, " +
-                    "department TEXT, " +
-                "tel TEXT);";
+                    "firstname TEXT NOT NULL, " +
+                    "lastname TEXT NOT NULL, " +
+                    "department TEXT NOT NULL, " +
+                    "tel TEXT NOT NULL);";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(createTableQuery, connection))
                 {
@@ -73,7 +73,7 @@ namespace ProjectManagementGantt
             {
                 connection.Open();
 
-                string selectQuery = "SELECT * FROM employees;";
+                string selectQuery = "SELECT id as \"ID\", firstName as \"Vorname\", lastName as \"Name\", department as \"Abteilung\", tel as \"Telefon\" FROM employees;";
                 using (SQLiteCommand cmd = new SQLiteCommand(selectQuery, connection))
                 {
                     using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
@@ -86,16 +86,30 @@ namespace ProjectManagementGantt
             }
         }
 
+        /*
+         String strConnection = Properties.Settings.Default.BooksConnectionString;
+                SqlConnection con = new SqlConnection(strConnection);
 
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.Connection = con;
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "Select * from titles";
+                SqlDataAdapter sqlDataAdap = new SqlDataAdapter(sqlCmd);
+
+                DataTable dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                dataGridView1.DataSource = dtRecord;
+         */
         public void UpdateDataTable()
         {
             DataTable newDataTable = GetEmployees();
+            employeesDataGrid.ItemsSource = newDataTable.DefaultView;
             yourDataTable.Clear();
             yourDataTable.Merge(newDataTable);
 
-            UpdateTable();
+            //UpdateTable();
         }
-
+        /*
         private void UpdateTable()
         {
             TableRowGroup tableRowGroup = employeesTable.RowGroups[0];
@@ -123,7 +137,7 @@ namespace ProjectManagementGantt
                 newRow.Cells.Add(new TableCell(new Paragraph(new Run(row["tel"].ToString()))));
             }
         }
-
+        */
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -135,6 +149,11 @@ namespace ProjectManagementGantt
         }
 
         private void get_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void employeesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
