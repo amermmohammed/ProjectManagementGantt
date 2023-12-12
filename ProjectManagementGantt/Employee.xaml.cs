@@ -17,11 +17,26 @@ namespace ProjectManagementGantt
 {
     public partial class Employee : Window
     {
+        private int employeeId = -1;
         public Employee()
         {
             InitializeComponent();
         }
 
+        public Employee(string firstName, string lastName, string department, string tel, int employeeId = -1)
+        {
+            InitializeComponent();
+            setData(firstName, lastName, department, tel);
+            this.employeeId = employeeId;
+        }
+
+        private void setData(string firstName, string lastName, string department, string tel)
+        {
+            firstNameTxt.Text = firstName;
+            lastNameTxt.Text = lastName;
+            depTxt.Text = department;
+            telTxt.Text = tel;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -30,32 +45,36 @@ namespace ProjectManagementGantt
             string dep = depTxt.Text;
             string tel = telTxt.Text;
             
-            bool success = InsertEmployee(firstName, lastname, dep, tel);
+            bool success = InsertEmployee(firstName, lastname, dep, tel, this.employeeId);
             errorMessage.Text = "Error1";
             if (success)
             {
-                firstNameTxt.Text = string.Empty;
-                lastNameTxt.Text = string.Empty;
-                depTxt.Text = string.Empty;
-                telTxt.Text = string.Empty;
+                setData(string.Empty, string.Empty, string.Empty, string.Empty);
                 errorMessage.Text = "";
                 MainWindow.employeesWindow.UpdateDataTable();
+                this.Close();
             } else
             {
                 errorMessage.Text = "Error: Bitte stellen Sie sicher, dass alle notwendigen Felder ausgefüllt sind.";
             }
         }
 
-        public static bool InsertEmployee(string firstName, string lastName, string department, string tel)
+        public static bool InsertEmployee(string firstName, string lastName, string department, string tel, int employeeId = -1)
         {
             string connectionString = "Data Source=db.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
+                string sqlQuery;
+                if (employeeId >= 0)
+                {
+                    sqlQuery = "UPDATE employees SET firstname = @firstName, lastname = @lastName, department = @department, tel = @tel WHERE id = @id;";
+                } else
+                {
+                    sqlQuery = "INSERT INTO employees (firstname, lastname, department, tel) VALUES (@firstName, @lastName, @department, @tel);";
+                }
 
-                string insertQuery = "INSERT INTO employees (firstname, lastname, department, tel) VALUES (@firstName, @lastName, @department, @tel);";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(insertQuery, connection))
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlQuery, connection))
                 {
                     if (firstName.Length > 0)
                     {
@@ -73,13 +92,17 @@ namespace ProjectManagementGantt
                     {
                         cmd.Parameters.AddWithValue("@tel", tel);
                     }
+                    if (employeeId >= 0)
+                    {
+                        cmd.Parameters.AddWithValue("@id", employeeId);
+                    }
                     int rowsAffected = 0;
                     try
                     {
                        rowsAffected = cmd.ExecuteNonQuery();
                     } catch(Exception e)
                     {
-                        //MessageBox.Show("Error" + e);
+                        MessageBox.Show("Error" + e);
                     }
 
                     connection.Close();
@@ -87,17 +110,6 @@ namespace ProjectManagementGantt
                     return rowsAffected > 0;
                 }
             }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            EmployeesWindow employeesWindow = new EmployeesWindow();
-            employeesWindow.Show();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

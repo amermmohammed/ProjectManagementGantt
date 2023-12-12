@@ -9,7 +9,7 @@
     MinHeight="300" MinWidth="400"
     mc:Ignorable="d" d:DesignHeight="482.46" d:DesignWidth="851.033">
     <Grid>
-        <DataGrid Name="employeesDataGrid" ColumnWidth="*" SelectionChanged="employeesDataGrid_SelectionChanged" EnableColumnVirtualization="True" HeadersVisibility="Column" Margin="0,0,0,110"/>
+        <DataGrid Name="employeesDataGrid" ColumnWidth="*" SelectionChanged="employeesDataGrid_SelectionChanged" EnableColumnVirtualization="True" HeadersVisibility="Column" Margin="0,0,0,110" IsReadOnly="True" SelectionMode="Single"/>
         <DockPanel LastChildFill="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,25">
             <Button
             Name="addEmployee"
@@ -21,12 +21,12 @@
             Name="editEmployee"
             Width="104"
             Height="37"
-            Content="Bearbeiten" Margin="10,0,10,0"/>
+            Content="Bearbeiten" Margin="10,0,10,0" Click="editEmployee_Click"/>
             <Button
             Name="deleteEmployee"
             Width="104"
             Height="37"
-            Content="Löschen"/>
+            Content="Löschen" Click="deleteEmployee_Click"/>
         </DockPanel>
     </Grid>
 

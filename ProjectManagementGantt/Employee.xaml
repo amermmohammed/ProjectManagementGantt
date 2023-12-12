@@ -12,21 +12,21 @@
             <DockPanel>
                 <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
 
-                <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Vorname" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
-                <TextBox x:Name="firstNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="firstNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
 
             </DockPanel>
             <DockPanel>
                 <Label Content="Abteilung" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
-                <TextBox x:Name="depTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="depTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
 
             </DockPanel>
             <DockPanel>
                 <Label Content="Telefon" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
-                <TextBox x:Name="telTxt" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" TextChanged="TextBox_TextChanged"/>
+                <TextBox x:Name="telTxt" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
             </DockPanel>
         </StackPanel>
         <Button Content="Speichern" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" MinWidth="100" MinHeight="40" Click="Button_Click" Margin="0,0,0,25"/>

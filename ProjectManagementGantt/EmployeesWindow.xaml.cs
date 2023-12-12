@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Runtime.Remoting.Messaging;
 using System.ComponentModel;
+using System.Windows.Interop;
+
 
 namespace ProjectManagementGantt
 {
@@ -143,10 +145,6 @@ namespace ProjectManagementGantt
 
         }
 
-        private void editEmployee_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void get_Click(object sender, RoutedEventArgs e)
         {
@@ -156,6 +154,55 @@ namespace ProjectManagementGantt
         private void employeesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void editEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            if (employeesDataGrid.SelectedItem != null)
+            {
+
+                DataRowView selectedRow = employeesDataGrid.SelectedItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int employeeid = int.Parse(selectedRow.Row["ID"].ToString());
+                    string name = selectedRow.Row["Name"].ToString();
+                    string vorName = selectedRow.Row["Vorname"].ToString();
+                    string abteilung = selectedRow.Row["Abteilung"].ToString();
+                    string telefon = selectedRow.Row["Telefon"].ToString();
+                    Employee employee = new Employee(name, vorName, abteilung, telefon, employeeid)
+                    {
+                        // Example: employee.Name = selectedRow.Row["Name"].ToString();
+                    };
+
+                    employee.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No row selected");
+            }
+        }
+
+        private void deleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            if (employeesDataGrid.SelectedItem != null)
+            {
+
+                DataRowView selectedRow = employeesDataGrid.SelectedItem as DataRowView;
+
+                if (selectedRow != null)
+                {
+                    int employeeid = int.Parse(selectedRow.Row["ID"].ToString());
+                    EmployeeDeleteWindow employeeToBeDeleted = new EmployeeDeleteWindow(employeeid);
+
+                    employeeToBeDeleted.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No row selected");
+            }
         }
     }
 }
