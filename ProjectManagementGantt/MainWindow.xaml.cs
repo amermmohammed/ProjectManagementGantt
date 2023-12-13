@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace ProjectManagementGantt
 {
@@ -22,6 +23,7 @@ namespace ProjectManagementGantt
     {
         public static MainWindow _instance;
         public static EmployeesWindow employeesWindow;
+        public static ProjectsWindow projectsWindow;
 
         public MainWindow()
         {
@@ -38,8 +40,14 @@ namespace ProjectManagementGantt
 
         private void btnProjects_Click(object sender, RoutedEventArgs e)
         {
-            ProjectsWindow projectsWindow = new ProjectsWindow();
-            projectsWindow.Show();
+            try
+            {
+                projectsWindow = new ProjectsWindow();
+                projectsWindow.Show();
+            } catch(Exception err)
+            {
+                MessageBox.Show("Error: " + err);
+            }
         }
     }
 }

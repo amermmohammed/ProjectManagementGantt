@@ -11,7 +11,6 @@
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0">
             <DockPanel>
                 <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" FontSize="16"/>
-
                 <TextBox x:Name="lastNameTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
             </DockPanel>
             <DockPanel>

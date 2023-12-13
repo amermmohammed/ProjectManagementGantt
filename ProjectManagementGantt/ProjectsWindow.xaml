@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Projektliste" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid Name="projectsDataGrid" AutoGenerateColumns="True" ColumnWidth="*" SelectionChanged="projectsDataGrid_SelectionChanged" EnableColumnVirtualization="True" HeadersVisibility="Column" Margin="0,0,0,110" IsReadOnly="True" SelectionMode="Single" />
+        <DockPanel Margin="0,124,0,25" VerticalAlignment="Bottom">
+            <Button Content="Neu" Width="50" Height="25" Margin="50,0,25,0" Click="Button_Click" /> 
+            <Button Content="Bearbeiten" Width="50" Height="25" Margin="25,0,25,0" /> 
+            <Button Content="Löschen" Width="50" Height="25" Margin="25,0,25,0" />
+            <Button Content="Diagram" Width="50" Height="25" Margin="250,0,0,0" />
+        </DockPanel>
     </Grid>
 </Window>

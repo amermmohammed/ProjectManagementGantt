@@ -32,7 +32,7 @@ namespace ProjectManagementGantt
         public EmployeesWindow()
         {
             InitializeComponent();
-            crateDb();
+            CreateEmployeesTable();
             UpdateDataTable();
         }
 
@@ -42,19 +42,21 @@ namespace ProjectManagementGantt
             employee.Show();
         }
 
-        public static bool crateDb()
+        public static bool CreateEmployeesTable()
         {
             string connectionString = "Data Source=db.db;Version=3;";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string createTableQuery = "CREATE TABLE IF NOT EXISTS employees (" +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "firstname TEXT NOT NULL, " +
-                    "lastname TEXT NOT NULL, " +
-                    "department TEXT NOT NULL, " +
-                    "tel TEXT NOT NULL);";
+                string createTableQuery = @"
+                CREATE TABLE IF NOT EXISTS employees (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    firstname TEXT NOT NULL, 
+                    lastname TEXT NOT NULL, 
+                    department TEXT NOT NULL, 
+                    tel TEXT NOT NULL
+                );";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(createTableQuery, connection))
                 {
@@ -63,11 +65,9 @@ namespace ProjectManagementGantt
 
                 connection.Close();
             }
-
             return true;
-
         }
-
+        
         public static DataTable GetEmployees()
         {
             string connectionString = "Data Source=db.db;Version=3;";
