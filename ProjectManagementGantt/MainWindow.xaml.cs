@@ -19,31 +19,31 @@ namespace ProjectManagementGantt
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public static MainWindow _instance;
-        public static EmployeesWindow employeesWindow;
-        public static ProjectsWindow projectsWindow;
+        public static EmployeeOverview employeeOverview;
+        public static ProjectOverview projectOverview;
 
         public MainWindow()
         {
             _instance = this;
             InitializeComponent();
         }
-        
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
-            employeesWindow = new EmployeesWindow();
-            employeesWindow.Show();
+            employeeOverview = new EmployeeOverview();
+            employeeOverview.Show();
         }
 
         private void btnProjects_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                projectsWindow = new ProjectsWindow();
-                projectsWindow.Show();
+                projectOverview = new ProjectOverview();
+                projectOverview.Show();
             } catch(Exception err)
             {
                 MessageBox.Show("Error: " + err);

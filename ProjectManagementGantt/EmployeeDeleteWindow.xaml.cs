@@ -67,7 +67,7 @@ namespace ProjectManagementGantt
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             DeleteEmpolyee(this.employeeId);
-            MainWindow.employeesWindow.UpdateDataTable();
+            MainWindow.employeeOverview.UpdateDataTable();
             this.Close();
         }
     }

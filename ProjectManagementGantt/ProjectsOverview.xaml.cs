@@ -16,15 +16,16 @@ using System.Data.SQLite;
 namespace ProjectManagementGantt
 {
     /// <summary>
-    /// Interaktionslogik für ProjectsWindow.xaml
+    /// Interaktionslogik für ProjectOverview.xaml
     /// </summary>
-    public partial class ProjectsWindow : Window
+    
+    public partial class ProjectOverview : Window
     {
-        public ProjectsWindow()
+        public ProjectOverview()
         {
             InitializeComponent();
             CreateProjectsTable();
-            //InsertFakeDataIntoProjects(5);
+            InsertFakeDataIntoProjects(5);
             LoadProjectsData();
         }
 
@@ -135,7 +136,7 @@ namespace ProjectManagementGantt
             return projects;
         }
 
-        // Definition of the Project class inside ProjectsWindow
+        // Definition of the Project class inside ProjectOverview
         private class Project
         {
             public int Id { get; set; }

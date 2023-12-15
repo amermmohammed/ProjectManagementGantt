@@ -26,12 +26,17 @@ namespace ProjectManagementGantt
         public Employee(string firstName, string lastName, string department, string tel, int employeeId = -1)
         {
             InitializeComponent();
-            setData(firstName, lastName, department, tel);
+            setData(firstName, lastName, department, tel, employeeId);
             this.employeeId = employeeId;
+
+            //idLabel.Visibility = Visibility.Visible;
+            //idTxt.Visibility = Visibility.Visible;
+            idPanel.Visibility = Visibility.Visible;
         }
 
-        private void setData(string firstName, string lastName, string department, string tel)
+        private void setData(string firstName, string lastName, string department, string tel, int employeeId = -1)
         {
+            idTxt.Text = employeeId.ToString();
             firstNameTxt.Text = firstName;
             lastNameTxt.Text = lastName;
             depTxt.Text = department;
@@ -51,7 +56,7 @@ namespace ProjectManagementGantt
             {
                 setData(string.Empty, string.Empty, string.Empty, string.Empty);
                 errorMessage.Text = "";
-                MainWindow.employeesWindow.UpdateDataTable();
+                MainWindow.employeeOverview.UpdateDataTable();
                 this.Close();
             } else
             {

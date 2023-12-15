@@ -21,15 +21,16 @@ using System.Windows.Interop;
 namespace ProjectManagementGantt
 {
     /// <summary>
-    /// Interaktionslogik für EmployeesWindow.xaml
+    /// Interaktionslogik für EmployeeOverview.xaml
     /// </summary>
     /// 
 
 
-    public partial class EmployeesWindow : Window
+    public partial class EmployeeOverview : Window
     {
         private DataTable yourDataTable = new DataTable();
-        public EmployeesWindow()
+
+        public EmployeeOverview()
         {
             InitializeComponent();
             CreateEmployeesTable();
