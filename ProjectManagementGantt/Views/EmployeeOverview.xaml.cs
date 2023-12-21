@@ -33,7 +33,7 @@ namespace ProjectManagementGantt
         public EmployeeOverview()
         {
             InitializeComponent();
-            CreateEmployeesTable();
+            //CreateEmployeesTable();
             UpdateDataTable();
         }
 
@@ -43,6 +43,7 @@ namespace ProjectManagementGantt
             employee.Show();
         }
 
+        /*
         public static bool CreateEmployeesTable()
         {
             string connectionString = "Data Source=db.db;Version=3;";
@@ -68,6 +69,7 @@ namespace ProjectManagementGantt
             }
             return true;
         }
+        */
         
         public static DataTable GetEmployees()
         {

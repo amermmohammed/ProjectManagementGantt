@@ -21,14 +21,21 @@ namespace ProjectManagementGantt
     
     public partial class ProjectOverview : Window
     {
+        //##########-##########-##########-###########//
+
+        private List<Project> projects = new List<Project>();
+
         public ProjectOverview()
         {
             InitializeComponent();
-            CreateProjectsTable();
-            InsertFakeDataIntoProjects(5);
-            LoadProjectsData();
+            //CreateProjectsTable();
+            //InsertFakeDataIntoProjects(5);
+            LoadProjectsinDataGrid();
         }
 
+        //##########-##########-##########-###########//
+
+        /*
         public static bool CreateProjectsTable()
         {
             string connectionString = "Data Source=db.db;Version=3;";
@@ -57,8 +64,8 @@ namespace ProjectManagementGantt
 
             return true;
         }
-
-    public static void InsertFakeDataIntoProjects(int numberOfProjects)
+        */
+        public static void InsertFakeDataIntoProjects(int numberOfProjects)
         {
             string connectionString = "Data Source=db.db;Version=3;";
             Random random = new Random();
@@ -99,13 +106,20 @@ namespace ProjectManagementGantt
             return start.AddDays(random.Next(range));
         }
 
+        //##########-##########-##########-###########//
 
-        private void LoadProjectsData()
+        public void LoadProjectsinDataGrid()
         {
-            projectsDataGrid.ItemsSource = GetProjects();
+            this.projects = LoadProjectsFromDb();
+            projectsDataGrid.ItemsSource = this.projects;
         }
 
-        private List<Project> GetProjects()
+        public List<Project> GetProjects()
+        {
+            return this.projects;
+        }
+
+        private List<Project> LoadProjectsFromDb()
         {
             var projects = new List<Project>();
             string connectionString = "Data Source=db.db;Version=3;";
@@ -137,24 +151,46 @@ namespace ProjectManagementGantt
         }
 
         // Definition of the Project class inside ProjectOverview
-        private class Project
-        {
-            public int Id { get; set; }
-            public string Title { get; set; }
-            public string StartingDate { get; set; }
-            public string EndingDate { get; set; }
-            public int EmployeeId { get; set; }
-        }
+        
 
-        private void projectsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        //##########-##########-##########-###########//
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Projektdetails projektdetails = new Projektdetails();
             projektdetails.Show();
         }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            //Project project = projects.FirstOrDefault(item => item.Id == i);
+            // https://stackoverflow.com/questions/3913580/get-selected-row-item-in-datagrid-wpf
+            Project project = (Project)projectsDataGrid.SelectedItem;
+            Projektdetails projektdetails = new Projektdetails(project);
+            projektdetails.Show();
+        }
+
+        //##########-##########-##########-###########//
+
     }
+
+    public class Project
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string StartingDate { get; set; }
+        public string EndingDate { get; set; }
+        public int EmployeeId { get; set; }
+    }
+
+    public class Phase
+    {
+        public int Id { get; set; }
+        public string Number { get; set; }
+        public string Title { get; set; }
+        public int Duration { get; set; }
+        public int ProjectId { get; set; }
+        public int ParentPhaseId { get; set; }
+    }
+
 }

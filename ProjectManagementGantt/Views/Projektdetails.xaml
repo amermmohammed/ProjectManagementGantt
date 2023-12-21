@@ -1,0 +1,65 @@
+﻿<Window x:Class="ProjectManagementGantt.Projektdetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagementGantt"
+        mc:Ignorable="d"
+        MinHeight="400"
+        MinWidth="400"
+        Title="Projektdetails" Height="536" Width="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,0">
+                <Label Content="Bezeichnung" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                <TextBox Name="descriptionText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Srartdatum" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                <TextBox Name="startingDateText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label Content="Enddatum" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                <TextBox Name="endingDateText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Label Content="Verantwortlicher" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30" Margin="13,0,0,0"/>
+                <ComboBox Name="employeeComboBox" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="0,0,15,0"/>
+            </DockPanel>
+            <Button Content="Projekt Speichern" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Margin="0,20,0,2" />
+            <DockPanel>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,20,0,0">
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,0">
+                        <Label Content="Nummer" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                        <TextBox Name="phaseNumberText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Phase" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                        <TextBox Name="phaseTitleText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Content="Dauer" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30"/>
+                        <TextBox Name="phaseDurationText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+                        <Label Content="Vorgänger" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" FontWeight="Bold" FontSize="16" Height="30" Margin="13,0,0,0"/>
+                        <TextBox Name="phaseParentText" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Margin="0,0,15,0"/>
+                    </DockPanel>
+                    <Button Content="Phase Hinzufügen" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click2" Margin="0,20,0,2" />
+                    <DataGrid 
+                    Name="phaseDataGrid" 
+                    ColumnWidth="*" 
+                    EnableColumnVirtualization="True" 
+                    HeadersVisibility="Column" 
+                    IsReadOnly="True" 
+                    SelectionMode="Single" 
+                    Margin="0,0,0,0" Height="130"
+                />
+                </StackPanel>
+
+            </DockPanel>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>

@@ -7,10 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Mitarbeiterliste"
     MinHeight="300" MinWidth="400"
-    mc:Ignorable="d" d:DesignHeight="482.46" d:DesignWidth="851.033" Icon="/projektmanagement.png" WindowStartupLocation="CenterScreen">
+    mc:Ignorable="d" d:DesignHeight="482.46" d:DesignWidth="851.033" Icon="/projektmanagement.png" WindowStartupLocation="CenterScreen" Width="800" Height="450">
     <Grid>
-        <DataGrid Name="employeesDataGrid" ColumnWidth="*" SelectionChanged="employeesDataGrid_SelectionChanged" EnableColumnVirtualization="True" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" Margin="0,0,0,85"/>
-        <DockPanel LastChildFill="False" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,25,0,25">
+        <DataGrid 
+            Name="employeesDataGrid" 
+            ColumnWidth="*" 
+            SelectionChanged="employeesDataGrid_SelectionChanged" 
+            EnableColumnVirtualization="True" 
+            HeadersVisibility="Column" 
+            IsReadOnly="True" 
+            SelectionMode="Single" 
+            Margin="0,0,0,85"
+        />
+        <DockPanel 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Center" 
+            Margin="0,25,0,25">
             <Button
                 Name="addEmployee"
                 Width="100"

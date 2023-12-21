@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 
+
 namespace ProjectManagementGantt
 {
     /// <summary>
@@ -30,12 +31,26 @@ namespace ProjectManagementGantt
         {
             _instance = this;
             InitializeComponent();
+            Database.CreateEmployeesTable();
+            Database.CreateProjectsTable();
+            Database.CreatePhaseTable();
         }
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
             employeeOverview = new EmployeeOverview();
             employeeOverview.Show();
+            /*
+            if (employeeOverview == null)
+            {
+                
+            } else
+            {
+                
+                //employeeOverview.IsActive()
+            }
+            */
+            
         }
 
         private void btnProjects_Click(object sender, RoutedEventArgs e)

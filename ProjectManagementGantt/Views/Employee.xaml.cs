@@ -39,16 +39,16 @@ namespace ProjectManagementGantt
             idTxt.Text = employeeId.ToString();
             firstNameTxt.Text = firstName;
             lastNameTxt.Text = lastName;
-            depTxt.Text = department;
-            telTxt.Text = tel;
+            departmentTxt.Text = department;
+            phoneTxt.Text = tel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string firstName = firstNameTxt.Text;
             string lastname = lastNameTxt.Text;
-            string dep = depTxt.Text;
-            string tel = telTxt.Text;
+            string dep = departmentTxt.Text;
+            string tel = phoneTxt.Text;
             
             bool success = InsertEmployee(firstName, lastname, dep, tel, this.employeeId);
             errorMessage.Text = "Error1";

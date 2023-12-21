@@ -1,0 +1,36 @@
+﻿<Window x:Class="ProjectManagementGantt.Employee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagementGantt"
+        mc:Ignorable="d"
+        
+        Title="Mitarbeiter" Width="380" Icon="/projektmanagement.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Topmost="True">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,25,25,25" Width="220">
+            <DockPanel Name="idPanel" Margin="0,0,0,10" Visibility="Collapsed">
+                <Label Content="Id" Width="100" FontWeight="Bold"/>
+                <TextBox Name="idTxt" TextWrapping="Wrap" Text="" Height="20" FontWeight="Bold" IsEnabled="False"/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Name" Width="100" FontWeight="Bold"/>
+                <TextBox Name="lastNameTxt" TextWrapping="Wrap" Text="" Height="20" FontWeight="Bold"/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Vorname" Width="100" FontWeight="Bold"/>
+                <TextBox Name="firstNameTxt" TextWrapping="Wrap" Text="" Height="20" FontWeight="Bold"/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Abteilung" Width="100" FontWeight="Bold"/>
+                <TextBox Name="departmentTxt" TextWrapping="Wrap" Text="" Height="20" FontWeight="Bold"/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,10">
+                <Label Content="Telefon" Width="100" FontWeight="Bold"/>
+                <TextBox Name="phoneTxt" TextWrapping="Wrap" Text="" Height="20" FontWeight="Bold"/>
+            </DockPanel>
+            <TextBlock Name="errorMessage" TextWrapping="Wrap" Text="" FontWeight="Bold" Margin="0,25,0,25" Foreground="#FFFF0303" TextAlignment="Center"/>
+            <Button Content="Speichern" Width="100" Height="35" Click="Button_Click" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
