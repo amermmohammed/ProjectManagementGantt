@@ -1,0 +1,58 @@
+﻿<Window x:Class="ProjectManagement.Views.EmployeeList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagement.Views"
+        mc:Ignorable="d"
+        
+        Title="Mitarbeiterliste"
+        Height="450" Width="800" MinWidth="550" MinHeight="300" 
+        Icon="/Resources/icon.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid 
+            Name="employeesDataGrid" 
+            AutoGenerateColumns="True"
+            ColumnWidth="*" 
+            EnableColumnVirtualization="True" 
+            HeadersVisibility="Column" 
+            IsReadOnly="True" 
+            SelectionMode="Single" 
+            Margin="0,0,0,85"
+            ItemsSource="{Binding Employees}"
+        />
+        <DockPanel 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Center" 
+            Margin="0,25,0,25">
+            <Button
+                Name="addEmployee"
+                Width="100"
+                Height="35"
+                Content="Neu" 
+                FontWeight="Bold"
+                CommandParameter="New"
+                Command="{Binding ShowEmployeeDetailsWindowCommand}"
+            />
+            <Button
+                Name="editEmployee"
+                Width="100"
+                Height="35"
+                Content="Bearbeiten" 
+                Margin="10,0,10,0" 
+                FontWeight="Bold"
+                CommandParameter="{Binding ElementName=employeesDataGrid, Path=SelectedItem}"
+                Command="{Binding ShowEmployeeDetailsWindowCommand}"
+            /> 
+            <Button
+                Name="deleteEmployee"
+                Width="100"
+                Height="35"
+                Content="Löschen" 
+                FontWeight="Bold"
+                CommandParameter="{Binding ElementName=employeesDataGrid, Path=SelectedItem}"
+                Command="{Binding DeleteSelectedEmployeeCommand}"
+            />
+        </DockPanel>
+    </Grid>
+</Window>

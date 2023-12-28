@@ -1,0 +1,38 @@
+﻿<Window x:Class="ProjectManagement.Views.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagement.Views"
+        mc:Ignorable="d"
+        
+        Title="Projektverwaltung Version 1.0" 
+        Height="110" Width="400" MinWidth="400" MinHeight="150" MaxWidth="400" MaxHeight="150"
+        Icon="/Resources/icon.png"  ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel LastChildFill="False" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button 
+                Name="btnProjects" 
+                Content="Projekte" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Width="100" 
+                Margin="0,0,5,0" 
+                Height="35" 
+                FontWeight="Bold"
+                Command="{Binding ShowProjectListWindowCommand}"
+            />
+            <Button 
+                Name="btnEmployees" 
+                Content="Mitarbeiter" 
+                VerticalAlignment="Center" 
+                Width="100" 
+                HorizontalAlignment="Right" 
+                Margin="5,0,0,0" 
+                Height="35" 
+                FontWeight="Bold"
+                Command="{Binding ShowEmployeeListWindowCommand}"
+            />
+        </DockPanel>
+    </Grid>
+</Window>
