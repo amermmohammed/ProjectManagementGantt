@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ProjectManagement.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,16 +14,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProjectManagementGantt
+namespace ProjectManagement.Views
 {
     /// <summary>
-    /// Interaktionslogik für ProjectsWindow.xaml
+    /// Interaktionslogik für Main.xaml
     /// </summary>
-    public partial class ProjectsWindow : Window
+    public partial class Main : Window
     {
-        public ProjectsWindow()
+        private MainViewModel model;
+        
+        public Main()
         {
             InitializeComponent();
+            model = new MainViewModel();
+            this.DataContext = model;
         }
     }
+
 }

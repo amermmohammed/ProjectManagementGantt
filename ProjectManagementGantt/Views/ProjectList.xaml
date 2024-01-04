@@ -1,0 +1,70 @@
+﻿<Window x:Class="ProjectManagement.Views.ProjectList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectManagement.Views"
+        mc:Ignorable="d"
+        
+        Title="Projektliste" 
+        Height="450" Width="800" MinWidth="550" MinHeight="300" 
+        Icon="/Resources/icon.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid 
+            Name="projectsDataGrid" 
+            AutoGenerateColumns="True"
+            ColumnWidth="*" 
+            EnableColumnVirtualization="True" 
+            HeadersVisibility="Column" 
+            IsReadOnly="True" 
+            SelectionMode="Single" 
+            Margin="0,0,0,85" 
+            ItemsSource="{Binding Projects}"
+        />
+        <DockPanel 
+            Margin="0,0,0,25" 
+            VerticalAlignment="Bottom">
+            <Button 
+                Content="Neu" 
+                Width="100" 
+                Height="35" 
+                Margin="25,0,25,0" 
+                HorizontalAlignment="Left" 
+                FontWeight="Bold" 
+                CommandParameter="New"
+                Command="{Binding ShowProjectDetailsWindowCommand}"
+            />
+            <Button 
+                Content="Bearbeiten" 
+                Width="100" 
+                Height="35" 
+                Margin="0,0,25,0" 
+                HorizontalAlignment="Left" 
+                FontWeight="Bold" 
+                CommandParameter="{Binding ElementName=projectsDataGrid, Path=SelectedItem}"
+                Command="{Binding ShowProjectDetailsWindowCommand}"
+            />
+            <Button 
+                Content="Löschen" 
+                Width="100" 
+                Height="35" 
+                Margin="0,0,25,0" 
+                HorizontalAlignment="Left" 
+                FontWeight="Bold" 
+                CommandParameter="{Binding ElementName=projectsDataGrid, Path=SelectedItem}"
+                Command="{Binding DeleteSelectedProjectCommand}"
+            />
+            <Button 
+                Content="Diagram" 
+                Width="100" 
+                Height="35" 
+                Margin="0,0,25,0" 
+                DockPanel.Dock="Right" 
+                HorizontalAlignment="Right" 
+                FontWeight="Bold" 
+                CommandParameter="{Binding ElementName=projectsDataGrid, Path=SelectedItem}"
+                Command="{Binding ShowGanttChartWindowCommand}"
+            />
+        </DockPanel>
+    </Grid>
+</Window>
